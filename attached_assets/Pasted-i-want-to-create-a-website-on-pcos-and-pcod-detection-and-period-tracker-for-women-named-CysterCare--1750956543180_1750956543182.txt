@@ -1,0 +1,122 @@
+i want to create a website on pcos and pcod detection and period tracker for women named CysterCare.Also in which on homepage there is header consisting of home,aboutus,symtom test,period tracker,forum,signup and each should be clickable page directing. Below header there is section about welcome and info about pcos.below that our services section of 6 cards consisting-pcos and pcod symtom test form, period tracker,diet and nutrition lifestyle,doctor and pathalogy consultant,management and treatment, information about pcos and pcod. Speak with us and other women discussion forumbelow this section in which there is button that takes to disscussion forum page and lastly a footer section.in period tracker page in want that girl should be able to choose her start date and it will tell her its last day and next cycle update.in symptom test form i want Symptom	Description
+Irregular periods	Delayed, missed, or very frequent cycles
+Acne or oily skin	Due to hormonal imbalance
+Weight gain	Especially around the belly
+Excess facial/body hair (hirsutism)	Common due to high androgens
+Hair thinning or scalp hair loss	Similar to male-pattern baldness
+Mood swings	Irritability, depression, or anxiety
+Fatigue	Feeling constantly tired or low energy
+Bloating or abdominal discomfort	Especially before periods
+Difficulty losing weight	Even with diet and exercise
+Dark patches on skin (Acanthosis Nigricans)	Often on neck or underarms
+Cravings, especially for carbs/sugar	Due to insulin resistance
+Sleep disturbances	Including poor sleep or sleep apnea
+
+Additional Symptoms Specific to PCOS
+Anovulation (lack of ovulation)	One of the main causes of infertility
+Elevated testosterone	Can lead to more pronounced hair growth or acne
+Insulin resistance	Strongly linked to PCOS, increases diabetes risk
+Higher risk of type 2 diabetes	Especially if untreated
+Increased risk of heart disease	Due to long-term metabolic impact
+Longer gaps between periods or complete absence	More common than in PCOD, these symptoms not their descriptions to be given in form of check box, and in the same form their should be next option which will take to questionaire section of How regular are your periods?
+
+☐ Regular (every 28–35 days)
+
+☐ Irregular (more than 35 days or unpredictable)
+
+☐ Missed for 2+ months
+
+How long do your periods usually last?
+
+☐ Less than 3 days
+
+☐ 3–7 days
+
+☐ More than 7 days
+
+Do you experience painful or heavy periods?
+
+☐ Yes
+
+☐ No
+
+🧠 Emotional & Mental Health
+Do you frequently experience mood swings, anxiety, or depression?
+
+☐ Yes
+
+☐ No
+
+Do you feel fatigued even after adequate rest?
+
+☐ Often
+
+☐ Sometimes
+
+☐ Rarely
+
+💇 Physical Appearance
+Do you notice excess facial or body hair (chin, upper lip, chest, abdomen)?
+
+☐ Yes
+
+☐ No
+
+Are you experiencing scalp hair thinning or hair fall?
+
+☐ Yes
+
+☐ No
+
+Do you have persistent acne or oily skin beyond puberty?
+
+☐ Yes
+
+☐ No
+
+Have you noticed dark patches on your neck, underarms, or inner thighs?
+☐ Yes
+☐ No
+Have you gained weight recently, especially around the belly?
+
+☐ Yes
+
+☐ No
+
+Do you find it difficult to lose weight despite diet and exercise?
+
+☐ Yes
+
+☐ No
+
+🍩 Lifestyle & Family History
+Do you often crave sugar or carbs?
+
+☐ Yes
+
+☐ No
+
+Do you have a family history of:
+
+☐ PCOS
+
+☐ Diabetes
+
+☐ Thyroid disorder
+
+☐ None
+
+Are you physically active (exercise at least 3 times a week)?
+
+☐ Yes
+
+☐ No
+
+🔍 Optional
+Have you ever been diagnosed with PCOS/PCOD by a doctor?
+
+☐ Yes
+
+☐ No
+
+☐ Not sure. and a submit option which will submit the test and create a summary of the same.
