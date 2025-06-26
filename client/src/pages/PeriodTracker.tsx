@@ -1,17 +1,23 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 export default function PeriodTracker() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedFlow, setSelectedFlow] = useState("");
   const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
   const [notes, setNotes] = useState("");
+  const [lastPeriodStart, setLastPeriodStart] = useState("");
+  const [avgCycleLength, setAvgCycleLength] = useState(28);
+  const [avgPeriodLength, setAvgPeriodLength] = useState(5);
+  const [showPeriodDialog, setShowPeriodDialog] = useState(false);
 
   const monthNames = [
     "January", "February", "March", "April", "May", "June",
@@ -59,14 +65,45 @@ export default function PeriodTracker() {
   const getDayClass = (day: number | null) => {
     if (!day) return "text-neutral-400";
     
-    // Sample period days (8-12) and ovulation day (22)
-    if ([8, 9, 10, 11, 12].includes(day)) {
-      return "text-white bg-secondary rounded cursor-pointer";
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+    const dayDate = new Date(currentYear, currentMonth, day);
+    
+    // Calculate predicted cycles if last period start is set
+    if (lastPeriodStart) {
+      const lastPeriodDate = new Date(lastPeriodStart);
+      const daysSinceLastPeriod = Math.floor((dayDate.getTime() - lastPeriodDate.getTime()) / (1000 * 60 * 60 * 24));
+      
+      // Period days (first avgPeriodLength days of cycle)
+      if (daysSinceLastPeriod >= 0 && daysSinceLastPeriod < avgPeriodLength) {
+        return "text-white bg-secondary rounded cursor-pointer";
+      }
+      
+      // Next predicted period
+      const nextPeriodStart = daysSinceLastPeriod - avgCycleLength;
+      if (nextPeriodStart >= 0 && nextPeriodStart < avgPeriodLength) {
+        return "text-white bg-secondary/70 rounded cursor-pointer border-2 border-secondary";
+      }
+      
+      // Ovulation day (approximately 14 days before next period)
+      const ovulationDay = daysSinceLastPeriod - (avgCycleLength - 14);
+      if (Math.abs(ovulationDay) <= 1) {
+        return "text-white bg-primary rounded cursor-pointer";
+      }
+      
+      // Fertile window (5 days before ovulation, day of ovulation, and day after)
+      if (ovulationDay >= -5 && ovulationDay <= 1) {
+        return "text-white bg-accent rounded cursor-pointer";
+      }
     }
-    if (day === 22) {
-      return "text-white bg-primary rounded cursor-pointer";
-    }
+    
     return "text-neutral-800 hover:bg-neutral-100 rounded cursor-pointer";
+  };
+
+  const handleSetPeriodStart = () => {
+    if (lastPeriodStart) {
+      setShowPeriodDialog(false);
+    }
   };
 
   const handleSymptomChange = (symptomId: string, checked: boolean) => {
@@ -107,7 +144,58 @@ export default function PeriodTracker() {
           <div className="lg:col-span-2">
             <Card>
               <CardContent className="p-6">
-                <h2 className="text-2xl font-bold text-neutral-800 mb-6">Cycle Calendar</h2>
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-neutral-800">Cycle Calendar</h2>
+                  <Dialog open={showPeriodDialog} onOpenChange={setShowPeriodDialog}>
+                    <DialogTrigger asChild>
+                      <Button className="bg-secondary text-white hover:bg-pink-600">
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add Period Start
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Set Period Start Date</DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <div>
+                          <Label htmlFor="period-start">Last Period Start Date</Label>
+                          <Input
+                            id="period-start"
+                            type="date"
+                            value={lastPeriodStart}
+                            onChange={(e) => setLastPeriodStart(e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="cycle-length">Average Cycle Length (days)</Label>
+                          <Input
+                            id="cycle-length"
+                            type="number"
+                            min="21"
+                            max="35"
+                            value={avgCycleLength}
+                            onChange={(e) => setAvgCycleLength(parseInt(e.target.value) || 28)}
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="period-length">Average Period Length (days)</Label>
+                          <Input
+                            id="period-length"
+                            type="number"
+                            min="3"
+                            max="7"
+                            value={avgPeriodLength}
+                            onChange={(e) => setAvgPeriodLength(parseInt(e.target.value) || 5)}
+                          />
+                        </div>
+                        <Button onClick={handleSetPeriodStart} className="w-full">
+                          Save & Predict Cycles
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
 
                 {/* Calendar Header */}
                 <div className="flex items-center justify-between mb-6">
@@ -167,24 +255,44 @@ export default function PeriodTracker() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-neutral-800 mb-4">Cycle Stats</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span className="text-neutral-600">Last Period:</span>
-                    <span className="font-semibold text-neutral-800">Dec 8, 2024</span>
+                {lastPeriodStart ? (
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="text-neutral-600">Last Period:</span>
+                      <span className="font-semibold text-neutral-800">
+                        {new Date(lastPeriodStart).toLocaleDateString()}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-neutral-600">Cycle Length:</span>
+                      <span className="font-semibold text-neutral-800">{avgCycleLength} days</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-neutral-600">Period Length:</span>
+                      <span className="font-semibold text-neutral-800">{avgPeriodLength} days</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-neutral-600">Next Period:</span>
+                      <span className="font-semibold text-primary">
+                        {(() => {
+                          const nextPeriod = new Date(lastPeriodStart);
+                          nextPeriod.setDate(nextPeriod.getDate() + avgCycleLength);
+                          return nextPeriod.toLocaleDateString();
+                        })()}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-600">Cycle Length:</span>
-                    <span className="font-semibold text-neutral-800">28 days</span>
+                ) : (
+                  <div className="text-center py-4">
+                    <p className="text-neutral-600 mb-4">No period data entered yet</p>
+                    <Button 
+                      onClick={() => setShowPeriodDialog(true)}
+                      className="bg-secondary text-white hover:bg-pink-600"
+                    >
+                      Add Period Start Date
+                    </Button>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-600">Period Length:</span>
-                    <span className="font-semibold text-neutral-800">5 days</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-600">Next Period:</span>
-                    <span className="font-semibold text-primary">Jan 5, 2025</span>
-                  </div>
-                </div>
+                )}
               </CardContent>
             </Card>
 

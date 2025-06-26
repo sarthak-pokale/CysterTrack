@@ -23,7 +23,17 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-2xl font-bold text-primary cursor-pointer">CysterCare</h1>
+              <div className="flex items-center space-x-2 cursor-pointer">
+                <svg width="32" height="32" viewBox="0 0 32 32" className="text-primary">
+                  <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.1"/>
+                  <path d="M16 6c5.5 0 10 4.5 10 10s-4.5 10-10 10S6 21.5 6 16 10.5 6 16 6z" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                  <circle cx="20" cy="12" r="2" fill="currentColor"/>
+                  <circle cx="16" cy="20" r="2" fill="currentColor"/>
+                  <path d="M10 16h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+                <h1 className="text-2xl font-bold text-primary">CysterTrack</h1>
+              </div>
             </Link>
           </div>
 
@@ -32,21 +42,21 @@ export default function Header() {
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
                 <Link key={item.path} href={item.path}>
-                  <a
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  <span
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
                       isActive(item.path)
                         ? "text-primary font-semibold"
                         : "text-neutral-600 hover:text-primary"
                     }`}
                   >
                     {item.label}
-                  </a>
+                  </span>
                 </Link>
               ))}
               <Link href="/signup">
-                <a className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
+                <span className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors cursor-pointer">
                   Sign Up
-                </a>
+                </span>
               </Link>
             </div>
           </div>
@@ -72,8 +82,8 @@ export default function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               {navItems.map((item) => (
                 <Link key={item.path} href={item.path}>
-                  <a
-                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  <span
+                    className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                       isActive(item.path)
                         ? "text-primary font-semibold"
                         : "text-neutral-600 hover:text-primary"
@@ -81,16 +91,16 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </span>
                 </Link>
               ))}
               <Link href="/signup">
-                <a
-                  className="block bg-primary text-white px-3 py-2 rounded-md text-base font-medium"
+                <span
+                  className="block bg-primary text-white px-3 py-2 rounded-md text-base font-medium cursor-pointer"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Sign Up
-                </a>
+                </span>
               </Link>
             </div>
           </div>

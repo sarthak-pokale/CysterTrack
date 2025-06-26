@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">CysterCare</h3>
+            <h3 className="text-2xl font-bold text-primary mb-4">CysterTrack</h3>
             <p className="text-neutral-300 mb-4">
               Empowering women through comprehensive PCOS/PCOD management and health tracking tools.
             </p>
@@ -34,27 +34,27 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/">
-                  <a className="text-neutral-300 hover:text-white transition-colors">Home</a>
+                  <span className="text-neutral-300 hover:text-white transition-colors cursor-pointer">Home</span>
                 </Link>
               </li>
               <li>
                 <Link href="/about">
-                  <a className="text-neutral-300 hover:text-white transition-colors">About Us</a>
+                  <span className="text-neutral-300 hover:text-white transition-colors cursor-pointer">About Us</span>
                 </Link>
               </li>
               <li>
                 <Link href="/symptom-test">
-                  <a className="text-neutral-300 hover:text-white transition-colors">Symptom Test</a>
+                  <span className="text-neutral-300 hover:text-white transition-colors cursor-pointer">Symptom Test</span>
                 </Link>
               </li>
               <li>
                 <Link href="/period-tracker">
-                  <a className="text-neutral-300 hover:text-white transition-colors">Period Tracker</a>
+                  <span className="text-neutral-300 hover:text-white transition-colors cursor-pointer">Period Tracker</span>
                 </Link>
               </li>
               <li>
                 <Link href="/forum">
-                  <a className="text-neutral-300 hover:text-white transition-colors">Community Forum</a>
+                  <span className="text-neutral-300 hover:text-white transition-colors cursor-pointer">Community Forum</span>
                 </Link>
               </li>
             </ul>

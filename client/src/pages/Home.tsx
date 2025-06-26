@@ -27,7 +27,7 @@ export default function Home() {
       icon: Apple,
       title: "Diet & Nutrition",
       description: "Personalized meal plans and nutrition guidance for PCOS management",
-      link: "#",
+      link: "/diet-nutrition",
       buttonText: "Learn More",
       bgColor: "bg-accent/10",
       iconColor: "text-accent",
@@ -36,7 +36,7 @@ export default function Home() {
       icon: UserRound,
       title: "Doctor Consultation",
       description: "Connect with specialist doctors and healthcare professionals",
-      link: "#",
+      link: "/doctor-consultation",
       buttonText: "Book Appointment",
       bgColor: "bg-blue-100",
       iconColor: "text-blue-600",
@@ -45,7 +45,7 @@ export default function Home() {
       icon: Heart,
       title: "Management & Care",
       description: "Comprehensive care plans and lifestyle management strategies",
-      link: "#",
+      link: "/management-care",
       buttonText: "Get Started",
       bgColor: "bg-purple-100",
       iconColor: "text-purple-600",
@@ -54,7 +54,7 @@ export default function Home() {
       icon: BookOpen,
       title: "Educational Resources",
       description: "Access articles, guides, and research about women's health",
-      link: "#",
+      link: "/educational-resources",
       buttonText: "Explore",
       bgColor: "bg-orange-100",
       iconColor: "text-orange-600",
@@ -67,7 +67,7 @@ export default function Home() {
       <section className="bg-gradient-to-r from-primary to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to CysterCare</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to CysterTrack</h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Your comprehensive platform for PCOS/PCOD detection, period tracking, and women's health management
             </p>

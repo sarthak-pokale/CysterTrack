@@ -77,7 +77,7 @@ export default function Results() {
       case "High Risk":
         return [
           "Schedule an appointment with a gynecologist or endocrinologist",
-          "Consider hormone level testing",
+          "Get comprehensive hormone testing (see recommended tests)",
           "Keep a detailed symptom diary",
           "Start tracking your menstrual cycle",
           "Discuss family history with your doctor",
@@ -161,17 +161,26 @@ export default function Results() {
           </CardContent>
         </Card>
 
-        <div className="text-center">
-          <Link href="/period-tracker">
-            <Button size="lg" className="bg-primary text-white hover:bg-blue-700 mr-4">
-              Start Period Tracking
-            </Button>
-          </Link>
-          <Link href="/">
-            <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
-              Return Home
-            </Button>
-          </Link>
+        <div className="text-center space-y-4">
+          {assessment.riskLevel === "High Risk" && (
+            <Link href="/medical-tests">
+              <Button size="lg" className="bg-red-600 text-white hover:bg-red-700 mr-4">
+                View Recommended Tests
+              </Button>
+            </Link>
+          )}
+          <div>
+            <Link href="/period-tracker">
+              <Button size="lg" className="bg-primary text-white hover:bg-blue-700 mr-4">
+                Start Period Tracking
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
+                Return Home
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
