@@ -41,7 +41,7 @@ export default function About() {
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 mb-6">About CysterCare</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 mb-6">About CysterTrack</h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
             Empowering women through comprehensive health management and early detection tools
           </p>
@@ -50,7 +50,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+              src="https://images.unsplash.com/photo-1729105140067-00c3c435ccd6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tZW4lMjBsYXVnaGluZ3xlbnwwfHwwfHx8MA%3D%3D"
               alt="Healthcare team"
               className="rounded-xl shadow-lg w-full h-auto"
             />
@@ -58,7 +58,7 @@ export default function About() {
           <div>
             <h2 className="text-3xl font-bold text-neutral-800 mb-6">Our Mission</h2>
             <p className="text-neutral-600 mb-6">
-              At CysterCare, we believe every woman deserves access to comprehensive health information and tools to manage conditions like PCOS and PCOD. Our platform combines medical expertise with user-friendly technology to provide early detection, tracking, and management solutions.
+              At CysterTrack, we believe every woman deserves access to comprehensive health information and tools to manage conditions like PCOS and PCOD. Our platform combines medical expertise with user-friendly technology to provide early detection, tracking, and management solutions.
             </p>
             <div className="space-y-4">
               {features.map((feature, index) => (

@@ -23,7 +23,7 @@ export default function DietNutrition() {
     },
     {
       name: "Mediterranean Style",
-      description: "Heart-healthy fats and whole foods",
+      description: "Heart-healthy fats and whole foods with perfect meals",
       duration: "8 weeks",
       meals: 42,
       difficulty: "Easy",
@@ -100,7 +100,7 @@ export default function DietNutrition() {
                       </div>
                     </div>
                     <Button className="w-full bg-primary text-white hover:bg-blue-700">
-                      Get Plan ($29)
+                      Get Plan (Rs.299)
                     </Button>
                   </CardContent>
                 </Card>

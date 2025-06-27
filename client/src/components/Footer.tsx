@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">CysterTrack</h3>
+            <h3 className="text-2xl font-bold text-pink-300 mb-4">CysterTrack</h3>
             <p className="text-neutral-300 mb-4">
               Empowering women through comprehensive PCOS/PCOD management and health tracking tools.
             </p>
@@ -98,15 +98,15 @@ export default function Footer() {
             <ul className="space-y-2 text-neutral-300">
               <li className="flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
-                support@cystercare.com
+                support@cystertrack.com
               </li>
               <li className="flex items-center">
                 <Phone className="h-4 w-4 mr-2" />
-                +1 (555) 123-4567
+                +91 1234567890
               </li>
               <li className="flex items-center">
                 <MapPin className="h-4 w-4 mr-2" />
-                123 Health St, Wellness City
+                Mumbai, India
               </li>
             </ul>
           </div>
@@ -114,7 +114,7 @@ export default function Footer() {
 
         <div className="border-t border-neutral-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-neutral-400">&copy; 2024 CysterCare. All rights reserved.</p>
+            <p className="text-neutral-400">&copy; 2024 CysterTrack. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <a href="#" className="text-neutral-400 hover:text-white mr-6 transition-colors">
                 Privacy Policy

@@ -17,22 +17,15 @@ export default function Header() {
   const isActive = (path: string) => location === path;
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-violet-200 to-pink-200 text-black ">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/">
               <div className="flex items-center space-x-2 cursor-pointer">
-                <svg width="32" height="32" viewBox="0 0 32 32" className="text-primary">
-                  <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.1"/>
-                  <path d="M16 6c5.5 0 10 4.5 10 10s-4.5 10-10 10S6 21.5 6 16 10.5 6 16 6z" fill="none" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                  <circle cx="20" cy="12" r="2" fill="currentColor"/>
-                  <circle cx="16" cy="20" r="2" fill="currentColor"/>
-                  <path d="M10 16h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-                <h1 className="text-2xl font-bold text-primary">CysterTrack</h1>
+                
+                <h1 className="text-2xl font-bold text-black">CysterTrack</h1>
               </div>
             </Link>
           </div>
@@ -45,8 +38,8 @@ export default function Header() {
                   <span
                     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
                       isActive(item.path)
-                        ? "text-primary font-semibold"
-                        : "text-neutral-600 hover:text-primary"
+                        ? "text-black font-semibold"
+                        : "text-black font-semibold hover:white"
                     }`}
                   >
                     {item.label}
@@ -54,7 +47,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link href="/signup">
-                <span className="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors cursor-pointer">
+                <span className="bg-black text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors cursor-pointer">
                   Sign Up
                 </span>
               </Link>

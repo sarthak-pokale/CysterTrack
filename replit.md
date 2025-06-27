@@ -114,7 +114,8 @@ CysterCare is a comprehensive web application designed to help women manage PCOS
 
 ```
 Changelog:
-- June 26, 2025. Initial setup
+- June 27, 2025. Added inspirational journey section with custom SVG illustration
+- June 26, 2025. Initial setup with complete PCOS/PCOD platform functionality
 ```
 
 ## User Preferences

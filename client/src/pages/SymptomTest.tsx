@@ -6,7 +6,13 @@ import { useLocation } from "wouter";
 import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -64,14 +70,22 @@ export default function SymptomTest() {
 
   const onSubmit = (data: SymptomTestForm) => {
     // Calculate risk score
-    let riskScore = (data.symptoms?.length || 0);
-    
-    if (data.periodRegularity === "irregular" || data.periodRegularity === "missed") riskScore += 2;
+    let riskScore = data.symptoms?.length || 0;
+
+    if (
+      data.periodRegularity === "irregular" ||
+      data.periodRegularity === "missed"
+    )
+      riskScore += 2;
     if (data.moodIssues === "yes") riskScore += 1;
     if (data.fatigueLevel === "often") riskScore += 1;
     if (data.weightGain === "yes") riskScore += 1;
     if (data.weightDifficulty === "yes") riskScore += 1;
-    if (data.familyHistory?.includes("pcos") || data.familyHistory?.includes("diabetes")) riskScore += 2;
+    if (
+      data.familyHistory?.includes("pcos") ||
+      data.familyHistory?.includes("diabetes")
+    )
+      riskScore += 2;
 
     let riskLevel: string;
     if (riskScore >= 8) {
@@ -119,19 +133,28 @@ export default function SymptomTest() {
             PCOS/PCOD Symptom Assessment
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            This comprehensive assessment will help identify potential symptoms and risk factors. Please answer all questions honestly for the most accurate results.
+            This comprehensive assessment will help identify potential symptoms
+            and risk factors. Please answer all questions honestly for the most
+            accurate results.
           </p>
         </div>
 
         <Card>
           <CardContent className="p-8">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-8"
+              >
                 {/* Symptoms Checklist */}
                 <div>
-                  <h2 className="text-2xl font-bold text-neutral-800 mb-6">Common PCOS/PCOD Symptoms</h2>
-                  <p className="text-neutral-600 mb-6">Please check all symptoms you are currently experiencing:</p>
-                  
+                  <h2 className="text-2xl font-bold text-neutral-800 mb-6">
+                    Common PCOS/PCOD Symptoms
+                  </h2>
+                  <p className="text-neutral-600 mb-6">
+                    Please check all symptoms you are currently experiencing:
+                  </p>
+
                   <FormField
                     control={form.control}
                     name="symptoms"
@@ -147,12 +170,20 @@ export default function SymptomTest() {
                                 <FormItem className="flex items-center space-x-3 p-3 rounded-lg hover:bg-neutral-50">
                                   <FormControl>
                                     <Checkbox
-                                      checked={field.value?.includes(symptom.value)}
+                                      checked={field.value?.includes(
+                                        symptom.value,
+                                      )}
                                       onCheckedChange={(checked) => {
                                         return checked
-                                          ? field.onChange([...(field.value || []), symptom.value])
+                                          ? field.onChange([
+                                              ...(field.value || []),
+                                              symptom.value,
+                                            ])
                                           : field.onChange(
-                                              field.value?.filter((value) => value !== symptom.value)
+                                              field.value?.filter(
+                                                (value) =>
+                                                  value !== symptom.value,
+                                              ),
                                             );
                                       }}
                                     />
@@ -173,28 +204,45 @@ export default function SymptomTest() {
                 {/* Menstrual Health */}
                 <Card className="bg-neutral-50">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-neutral-800 mb-4">🩸 Menstrual Health</h3>
-                    
                     <div className="space-y-6">
                       <FormField
                         control={form.control}
                         name="periodRegularity"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">How regular are your periods?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              How regular are your periods?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="regular" id="regular" />
-                                  <Label htmlFor="regular">Regular (every 28–35 days)</Label>
+                                  <RadioGroupItem
+                                    value="regular"
+                                    id="regular"
+                                  />
+                                  <Label htmlFor="regular">
+                                    Regular (every 28–35 days)
+                                  </Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="irregular" id="irregular" />
-                                  <Label htmlFor="irregular">Irregular (more than 35 days or unpredictable)</Label>
+                                  <RadioGroupItem
+                                    value="irregular"
+                                    id="irregular"
+                                  />
+                                  <Label htmlFor="irregular">
+                                    Irregular (more than 35 days or
+                                    unpredictable)
+                                  </Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="missed" id="missed" />
-                                  <Label htmlFor="missed">Missed for 2+ months</Label>
+                                  <Label htmlFor="missed">
+                                    Missed for 2+ months
+                                  </Label>
                                 </div>
                               </RadioGroup>
                             </FormControl>
@@ -207,12 +255,20 @@ export default function SymptomTest() {
                         name="periodDuration"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">How long do your periods usually last?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              How long do your periods usually last?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="short" id="short" />
-                                  <Label htmlFor="short">Less than 3 days</Label>
+                                  <Label htmlFor="short">
+                                    Less than 3 days
+                                  </Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="normal" id="normal" />
@@ -233,9 +289,15 @@ export default function SymptomTest() {
                         name="periodPain"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Do you experience painful or heavy periods?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Do you experience painful or heavy periods?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="yes" id="pain-yes" />
                                   <Label htmlFor="pain-yes">Yes</Label>
@@ -256,17 +318,22 @@ export default function SymptomTest() {
                 {/* Emotional & Mental Health */}
                 <Card className="bg-neutral-50">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-neutral-800 mb-4">🧠 Emotional & Mental Health</h3>
-                    
                     <div className="space-y-6">
                       <FormField
                         control={form.control}
                         name="moodIssues"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Do you frequently experience mood swings, anxiety, or depression?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Do you frequently experience mood swings, anxiety,
+                              or depression?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="yes" id="mood-yes" />
                                   <Label htmlFor="mood-yes">Yes</Label>
@@ -286,19 +353,36 @@ export default function SymptomTest() {
                         name="fatigueLevel"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Do you feel fatigued even after adequate rest?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Do you feel fatigued even after adequate rest?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="often" id="fatigue-often" />
+                                  <RadioGroupItem
+                                    value="often"
+                                    id="fatigue-often"
+                                  />
                                   <Label htmlFor="fatigue-often">Often</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="sometimes" id="fatigue-sometimes" />
-                                  <Label htmlFor="fatigue-sometimes">Sometimes</Label>
+                                  <RadioGroupItem
+                                    value="sometimes"
+                                    id="fatigue-sometimes"
+                                  />
+                                  <Label htmlFor="fatigue-sometimes">
+                                    Sometimes
+                                  </Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="rarely" id="fatigue-rarely" />
+                                  <RadioGroupItem
+                                    value="rarely"
+                                    id="fatigue-rarely"
+                                  />
                                   <Label htmlFor="fatigue-rarely">Rarely</Label>
                                 </div>
                               </RadioGroup>
@@ -313,8 +397,6 @@ export default function SymptomTest() {
                 {/* Physical Appearance */}
                 <Card className="bg-neutral-50">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-neutral-800 mb-4">💇 Physical Appearance</h3>
-                    
                     <div className="space-y-6">
                       {/* Additional radio group fields would go here for brevity, I'm showing the pattern */}
                       <FormField
@@ -322,9 +404,15 @@ export default function SymptomTest() {
                         name="excessHair"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Do you notice excess facial or body hair?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Do you notice excess facial or body hair?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="yes" id="hair-yes" />
                                   <Label htmlFor="hair-yes">Yes</Label>
@@ -344,9 +432,16 @@ export default function SymptomTest() {
                         name="weightGain"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Have you gained weight recently, especially around the belly?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Have you gained weight recently, especially around
+                              the belly?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="yes" id="weight-yes" />
                                   <Label htmlFor="weight-yes">Yes</Label>
@@ -367,19 +462,26 @@ export default function SymptomTest() {
                 {/* Lifestyle & Family History */}
                 <Card className="bg-neutral-50">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-neutral-800 mb-4">🍩 Lifestyle & Family History</h3>
-                    
                     <div className="space-y-6">
                       <FormField
                         control={form.control}
                         name="sugarCravings"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Do you often crave sugar or carbs?</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Do you often crave sugar or carbs?
+                            </FormLabel>
                             <FormControl>
-                              <RadioGroup onValueChange={field.onChange} value={field.value} className="space-y-2">
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="yes" id="cravings-yes" />
+                                  <RadioGroupItem
+                                    value="yes"
+                                    id="cravings-yes"
+                                  />
                                   <Label htmlFor="cravings-yes">Yes</Label>
                                 </div>
                                 <div className="flex items-center space-x-2">
@@ -397,34 +499,48 @@ export default function SymptomTest() {
                         name="familyHistory"
                         render={() => (
                           <FormItem>
-                            <FormLabel className="text-neutral-700 font-medium">Do you have a family history of:</FormLabel>
+                            <FormLabel className="text-neutral-700 font-medium">
+                              Do you have a family history of:
+                            </FormLabel>
                             <div className="space-y-2">
-                              {["pcos", "diabetes", "thyroid", "none"].map((condition) => (
-                                <FormField
-                                  key={condition}
-                                  control={form.control}
-                                  name="familyHistory"
-                                  render={({ field }) => (
-                                    <FormItem className="flex items-center space-x-3">
-                                      <FormControl>
-                                        <Checkbox
-                                          checked={field.value?.includes(condition)}
-                                          onCheckedChange={(checked) => {
-                                            return checked
-                                              ? field.onChange([...(field.value || []), condition])
-                                              : field.onChange(
-                                                  field.value?.filter((value) => value !== condition)
-                                                );
-                                          }}
-                                        />
-                                      </FormControl>
-                                      <FormLabel className="text-neutral-700 capitalize">
-                                        {condition === "pcos" ? "PCOS" : condition}
-                                      </FormLabel>
-                                    </FormItem>
-                                  )}
-                                />
-                              ))}
+                              {["pcos", "diabetes", "thyroid", "none"].map(
+                                (condition) => (
+                                  <FormField
+                                    key={condition}
+                                    control={form.control}
+                                    name="familyHistory"
+                                    render={({ field }) => (
+                                      <FormItem className="flex items-center space-x-3">
+                                        <FormControl>
+                                          <Checkbox
+                                            checked={field.value?.includes(
+                                              condition,
+                                            )}
+                                            onCheckedChange={(checked) => {
+                                              return checked
+                                                ? field.onChange([
+                                                    ...(field.value || []),
+                                                    condition,
+                                                  ])
+                                                : field.onChange(
+                                                    field.value?.filter(
+                                                      (value) =>
+                                                        value !== condition,
+                                                    ),
+                                                  );
+                                            }}
+                                          />
+                                        </FormControl>
+                                        <FormLabel className="text-neutral-700 capitalize">
+                                          {condition === "pcos"
+                                            ? "PCOS"
+                                            : condition}
+                                        </FormLabel>
+                                      </FormItem>
+                                    )}
+                                  />
+                                ),
+                              )}
                             </div>
                           </FormItem>
                         )}
@@ -434,13 +550,15 @@ export default function SymptomTest() {
                 </Card>
 
                 <div className="text-center">
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     disabled={submitAssessmentMutation.isPending}
                     className="bg-primary text-white hover:bg-blue-700"
                   >
-                    {submitAssessmentMutation.isPending ? "Submitting..." : "Submit Assessment"}
+                    {submitAssessmentMutation.isPending
+                      ? "Submitting..."
+                      : "Submit Assessment"}
                   </Button>
                 </div>
               </form>
