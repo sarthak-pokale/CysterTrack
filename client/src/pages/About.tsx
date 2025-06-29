@@ -3,19 +3,19 @@ import { CheckCircle } from "lucide-react";
 export default function About() {
   const teamMembers = [
     {
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Sara Trivedi",
       role: "Reproductive Endocrinologist",
       description: "15+ years specializing in PCOS treatment and women's hormonal health",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
     },
     {
-      name: "Dr. Maria Rodriguez",
+      name: "Dr. Kalyan Sharma",
       role: "Clinical Nutritionist",
       description: "Specialized in PCOS nutrition therapy and metabolic health management",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      image: "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg",
     },
     {
-      name: "Dr. Emily Chen",
+      name: "Dr. Pooja Shah",
       role: "Health Psychologist",
       description: "Expert in mental health aspects of chronic health conditions",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",

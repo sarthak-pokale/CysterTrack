@@ -17,7 +17,7 @@ export default function DoctorConsultation() {
   const doctors = [
     {
       id: 1,
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Sara Trivedi",
       specialty: "Reproductive Endocrinologist",
       rating: 4.9,
       reviews: 234,
@@ -31,7 +31,7 @@ export default function DoctorConsultation() {
     },
     {
       id: 2,
-      name: "Dr. Maria Rodriguez",
+      name: "Dr. Kalyan Sharma",
       specialty: "Gynecologist",
       rating: 4.8,
       reviews: 189,
@@ -39,13 +39,13 @@ export default function DoctorConsultation() {
       location: "Mumbai, India",
       consultationFee: 500,
       image:
-        "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+        "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg",
       availableSlots: ["10:00 AM", "1:00 PM", "3:00 PM"],
       languages: ["English", "Spanish", "Portuguese"],
     },
     {
       id: 3,
-      name: "Dr. Emily Chen",
+      name: "Dr. Pooja Shah",
       specialty: "Endocrinologist",
       rating: 4.9,
       reviews: 156,

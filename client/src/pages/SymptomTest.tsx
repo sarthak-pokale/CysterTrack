@@ -126,7 +126,7 @@ export default function SymptomTest() {
   ];
 
   return (
-    <section className="py-16 bg-white min-h-screen">
+    <section className="py-16 bg-pink-50 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 mb-6">
@@ -202,7 +202,7 @@ export default function SymptomTest() {
                 </div>
 
                 {/* Menstrual Health */}
-                <Card className="bg-neutral-50">
+                <Card className="bg-white">
                   <CardContent className="p-6">
                     <div className="space-y-6">
                       <FormField
@@ -316,7 +316,7 @@ export default function SymptomTest() {
                 </Card>
 
                 {/* Emotional & Mental Health */}
-                <Card className="bg-neutral-50">
+                <Card className="bg-white">
                   <CardContent className="p-6">
                     <div className="space-y-6">
                       <FormField
@@ -395,7 +395,7 @@ export default function SymptomTest() {
                 </Card>
 
                 {/* Physical Appearance */}
-                <Card className="bg-neutral-50">
+                <Card className="bg-white">
                   <CardContent className="p-6">
                     <div className="space-y-6">
                       {/* Additional radio group fields would go here for brevity, I'm showing the pattern */}
@@ -460,7 +460,7 @@ export default function SymptomTest() {
                 </Card>
 
                 {/* Lifestyle & Family History */}
-                <Card className="bg-neutral-50">
+                <Card className="bg-white">
                   <CardContent className="p-6">
                     <div className="space-y-6">
                       <FormField
@@ -554,7 +554,7 @@ export default function SymptomTest() {
                     type="submit"
                     size="lg"
                     disabled={submitAssessmentMutation.isPending}
-                    className="bg-primary text-white hover:bg-blue-700"
+                    className="bg-black text-white hover:bg-pink-600"
                   >
                     {submitAssessmentMutation.isPending
                       ? "Submitting..."

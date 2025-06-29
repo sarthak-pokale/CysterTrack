@@ -1,4 +1,12 @@
-import { pgTable, text, serial, integer, boolean, timestamp, json } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  text,
+  serial,
+  integer,
+  boolean,
+  timestamp,
+  json,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -48,7 +56,9 @@ export const insertUserSchema = createInsertSchema(users).omit({
   createdAt: true,
 });
 
-export const insertSymptomAssessmentSchema = createInsertSchema(symptomAssessments).omit({
+export const insertSymptomAssessmentSchema = createInsertSchema(
+  symptomAssessments,
+).omit({
   id: true,
   createdAt: true,
 });
@@ -67,7 +77,9 @@ export const insertForumPostSchema = createInsertSchema(forumPosts).omit({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
-export type InsertSymptomAssessment = z.infer<typeof insertSymptomAssessmentSchema>;
+export type InsertSymptomAssessment = z.infer<
+  typeof insertSymptomAssessmentSchema
+>;
 export type SymptomAssessment = typeof symptomAssessments.$inferSelect;
 export type InsertPeriodEntry = z.infer<typeof insertPeriodEntrySchema>;
 export type PeriodEntry = typeof periodEntries.$inferSelect;

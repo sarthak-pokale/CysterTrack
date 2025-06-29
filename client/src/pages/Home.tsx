@@ -227,111 +227,34 @@ export default function Home() {
       </section>
 
       {/* Journey Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-pink-50">
+      <section className="py-20 bg-gradient-to-br from-white to-pink-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-800">
+              <h2 className="text-4xl md:text-5xl font-bold text-neutral-800">
                 It is a journey
               </h2>
               <p className="text-lg text-neutral-600 leading-relaxed">
-                When I found out what was happening to me had a name, I was greatly relieved. 
-                Up to that point, I thought I was going crazy. I first suggested to my doctor 
-                that I was worried about my weight and facial hair, she said just stop eating 
-                and wax. I felt very isolated.
+                When I found out what was happening to me had a name, I was
+                greatly relieved. Up to that point, I thought I was going crazy.
+                I first suggested to my doctor that I was worried about my
+                weight and facial hair, she said just stop eating and wax. I
+                felt very isolated.
               </p>
               <div className="pt-4">
                 <Link href="/about">
-                  <Button size="lg" className="bg-primary text-white hover:bg-blue-700">
+                  <Button
+                    size="lg"
+                    className="bg-pink-500 text-white hover:bg-black"
+                  >
                     Learn More About Our Mission
                   </Button>
                 </Link>
               </div>
             </div>
             <div className="relative">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <svg
-                  viewBox="0 0 400 300"
-                  className="w-full h-auto"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Background gradient */}
-                  <defs>
-                    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#87CEEB" />
-                      <stop offset="50%" stopColor="#FFE4E1" />
-                      <stop offset="100%" stopColor="#FFF8DC" />
-                    </linearGradient>
-                    <radialGradient id="lightGradient" cx="80%" cy="20%">
-                      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
-                      <stop offset="50%" stopColor="#FFE4E1" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#87CEEB" stopOpacity="0.3" />
-                    </radialGradient>
-                  </defs>
-                  
-                  {/* Sky background */}
-                  <rect width="400" height="300" fill="url(#skyGradient)" />
-                  
-                  {/* Light source */}
-                  <circle cx="320" cy="60" r="40" fill="url(#lightGradient)" />
-                  
-                  {/* Road */}
-                  <path
-                    d="M 0 250 Q 200 240 400 200"
-                    stroke="#8B7355"
-                    strokeWidth="40"
-                    fill="none"
-                  />
-                  <path
-                    d="M 0 250 Q 200 240 400 200"
-                    stroke="#A0522D"
-                    strokeWidth="30"
-                    fill="none"
-                  />
-                  
-                  {/* Road markings */}
-                  <path
-                    d="M 50 245 L 80 243 M 120 241 L 150 239 M 190 237 L 220 235 M 260 233 L 290 231"
-                    stroke="#FFFFFF"
-                    strokeWidth="2"
-                    strokeDasharray="15,10"
-                  />
-                  
-                  {/* Trees/landscape */}
-                  <ellipse cx="50" cy="200" rx="15" ry="25" fill="#228B22" />
-                  <ellipse cx="80" cy="190" rx="12" ry="20" fill="#32CD32" />
-                  <ellipse cx="350" cy="180" rx="18" ry="30" fill="#228B22" />
-                  
-                  {/* Girl figure walking */}
-                  <g transform="translate(180, 200)">
-                    {/* Shadow */}
-                    <ellipse cx="0" cy="35" rx="8" ry="3" fill="#000000" opacity="0.2" />
-                    
-                    {/* Legs */}
-                    <line x1="-3" y1="15" x2="-5" y2="30" stroke="#FFB6C1" strokeWidth="3" strokeLinecap="round" />
-                    <line x1="3" y1="15" x2="8" y2="28" stroke="#FFB6C1" strokeWidth="3" strokeLinecap="round" />
-                    
-                    {/* Body */}
-                    <rect x="-4" y="0" width="8" height="18" rx="4" fill="#FF69B4" />
-                    
-                    {/* Arms */}
-                    <line x1="-4" y1="8" x2="-8" y2="15" stroke="#FFB6C1" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="4" y1="8" x2="6" y2="12" stroke="#FFB6C1" strokeWidth="2" strokeLinecap="round" />
-                    
-                    {/* Head */}
-                    <circle cx="0" cy="-6" r="6" fill="#FFB6C1" />
-                    
-                    {/* Hair */}
-                    <path d="M -6 -10 Q 0 -14 6 -10 Q 4 -6 0 -8 Q -4 -6 -6 -10" fill="#8B4513" />
-                  </g>
-                  
-                  {/* Light rays */}
-                  <g opacity="0.6">
-                    <line x1="320" y1="60" x2="180" y2="180" stroke="#FFE4E1" strokeWidth="2" />
-                    <line x1="310" y1="50" x2="160" y2="170" stroke="#FFE4E1" strokeWidth="1" />
-                    <line x1="330" y1="50" x2="200" y2="170" stroke="#FFE4E1" strokeWidth="1" />
-                  </g>
-                </svg>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl ">
+                <img src="https://media.istockphoto.com/id/576573164/photo/footprints-in-sand-with-woman-walking-in-background-during-sunse.jpg?s=612x612&w=0&k=20&c=AOSbAvOBj7-hCHpA0hAK-tcF2OnMiXoS1NWQUAX6YnI=" />
               </div>
             </div>
           </div>
