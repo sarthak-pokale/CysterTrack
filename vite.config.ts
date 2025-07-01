@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
+import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [
@@ -16,6 +16,8 @@ export default defineConfig({
         ]
       : []),
   ],
+  base: "/"
+  ,
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
